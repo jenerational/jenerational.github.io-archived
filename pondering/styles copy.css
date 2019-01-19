@@ -1,0 +1,152 @@
+/*
+	~ Jennifer Walker © 2017 ~
+	★ Created for jw4043.github.io ★
+         _   _____  __         __
+	    | | / ____| \  \  /\  /  /   _   _  _  ___ ___
+	__  | | \___  \  \  \/  \/  /\  | | | |/ /| __| __ \
+ 	\ \_/ /  ___) |   \   /\   /  \ | |_|   < | __|    /
+	 \___/  |_____/    \_/  \_/_/\_\|___|_|\_\|___|_|\_\
+*/
+
+/* GENERAL
+------------------------*/ 
+body {
+	background-color: #34ace0; /*#66DCE9*/
+}
+
+h1 {
+  font-size: 60px;
+  font-family: Open Sans, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  text-shadow: 1px 1px 1px #999,2px 2px 1px #999,3px 3px 1px #999,4px 4px 1px #999;
+  transform: translate(-50%);
+}
+
+/* Programming
+---------------------------------*/
+.prgmg {
+	color: white;
+	font-family: sans-serif;
+	text-align: center;
+}
+
+.prgmg a {
+		text-decoration: none;
+}
+
+span.sp {
+    margin-left: 15%;
+}
+
+#sub-prgmg {
+	margin-bottom: 100px;
+}
+
+/* PHOTOGRAPHY
+---------------------------------*/
+.photo {
+	margin: 15px; 
+}
+.photo img {
+	width: 49%;
+	padding: 5px;
+}
+
+.photo h3 {
+	font-family: Raleway:bold, sans-serif;
+	font-weight: 100;
+	font-size: 50px; 
+	margin-top: 50px;
+	margin-bottom:25px;
+}
+
+.photo h4 {
+	text-align: center;
+	font-family: Dancing Script, sans-serif; 
+	font-size: 25px;
+	color: white;
+}
+
+/* STUDENT
+---------------------------------*/
+.student {
+	padding: 45px;
+}
+
+.student p {
+}
+
+.student .day {
+	padding: 45px;
+}
+
+.student .day #layer {
+	width: 92.5%; 
+	padding: 45px; 
+	margin: 0; 
+}
+
+.student .day #layer p {
+	color: black;
+}
+
+.student .day #layer b {
+	font-size: 1.1em;
+}
+
+.day h4 {
+	color: black;
+	margin-top: 0px; 
+}
+
+#CO {
+	background-color: #bbbbbb;
+	padding: 45px;
+}
+
+#CO #layer {  
+	margin: 0px; 
+	width: 97.5%;
+}
+
+#CO h3 {
+	color: black;
+}
+
+#CO h4 {
+	text-align: center;
+	color: black;
+}
+
+#CO p {
+	padding-left:50px; 
+	padding-right:50px;
+	color: black;
+}
+
+#CO p.qu {
+	text-align: center;
+	font-style: italic;
+}
+
+/*FOR DEFAULT GREYSCALE PHTOTOS
+.grey img {
+	-webkit-filter: grayscale(0);
+	filter: grayscale(100%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	width: 100%;
+}
+.grey img:hover {
+	-webkit-filter: grayscale(100%) blur(3px);
+	filter: grayscale(0%);
+}*/ 
+
+
+
+

@@ -1,0 +1,49 @@
+.neato-header {
+  color: #fcc;
+  min-width: 20%; 
+  max-width: 60%; 
+  padding: 30px;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  border: 3px solid #fcc;
+  border-top: none;
+  margin: 5px;
+}
+
+.neato-header h1, .neato-header h2 {
+  letter-spacing: 0.05em;
+}
+.neato-header h1 {
+  font-size: 65px;
+  font-family: "Open Sans Condensed";
+  text-transform: uppercase;
+}
+.neato-header h2 {
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  font-family: "Vollkorn";
+  font-weight: italic;
+  font-size: 21px;
+  overflow: auto;
+  margin: -30px -33px 0 -33px;
+  position: absolute;
+  width: calc( 100% + 6px );
+}
+.neato-header h2:before, .neato-header h2:after {
+  content: "";
+  position: absolute;
+  width: 31.31%;
+  margin-top: -2px;
+  border-top: 3px solid #fcc;
+  top: 50%;
+}
+.neato-header h2:before {
+  -webkit-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+  margin-left: -30px;
+}
+.neato-header h2:after {
+  margin-left: 30px;
+}

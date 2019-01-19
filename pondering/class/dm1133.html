@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+	~ Jennifer Walker © 2017 ~
+	★ Created for jenerational.github.io ★
+         _   _____  __         __
+	    | | / ____| \  \  /\  /  /   _   _  _  ___ ___
+	__  | | \___  \  \  \/  \/  /\  | | | |/ /| __| __ \
+ 	\ \_/ /  ___) |   \   /\   /  \ | |_|   < | __|    /
+	 \___/  |_____/    \_/  \_/_/\_\|___|_|\_\|___|_|\_\
+-->
+
+<html>
+<head>
+	<title>Jennifer Walker | CC</title>
+	<!--css-->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway" rel="stylesheet">
+	<link href="styles.css" rel="stylesheet" type="text/css" /> 
+</head>
+<body>
+	<div id="cc" class="fixed">
+		<div class="title">
+			<h1>Creative Coding</h1>
+		</div>
+		<div class="box">
+			<div class="content">
+				<h2>A Class Overview:</h2>
+				<p>In Creative Coding, we used the P5 JS JavaScipt library to create visual programs that familiarized us with the drawing, transforming, and analyzing components of the library. I've decided to remove my first few assignments from this page as they are rather simple and I don't find much enjoyment in displaying them.</p>
+			</div>
+		</div>
+		<div class="box">
+			<div class="content">
+				<h2>September 26, 2017</h2>
+				<center><figure><img src="https://i0.wp.com/www.guggenheim.org/wp-content/uploads/1967/01/82.2976_ph_web.jpg" width="80%"/></figure></center>
+				<p>Originally, I was going to do the above Frank Stella image. I loved the vibrancy of the color, but due to the specifics of the colors of the arcs and my inability to figure out how to do a rectangle with a transparent center, I ended up hardcoding the piece with the colors changing, as it seemed like the importance was more their relationship to each other rather than the specific colors Stella chose. The following is a screenshot from my program of this first image.</p>
+				<center><figure><img src="img/cc/Frank_Stella_1.png" width="80%"/></figure></center>
+				<p>The code for this first Frank Stella image can be found <a href="https://github.com/jenerational/Walker-CreativeCoding-17/tree/master/P5/Frank%20Stella%20Hardcoded">here</a>.</p>
+				<center><figure><img src="http://www.tate.org.uk/art/images/work/T/T00/T00730_10.jpg" width="50%"/></figure></center>
+				<p>I changed to the above image, because I felt that the repition of the color pattern as well as the shape would lend itself to be easiest replicated using loops, which was the assignment. I made a white stroke with a weight of one, proceded to make a for loop that looped through 4 times for the triangle and then used a while loop for almost all the rest of the shapes, ending with one last squared off shape on the right side of the image.</p>
+				<center><figure><img src="img/cc/Frank_Stella_2.png" width="80%"/></figure></center>
+				<p>The code for this final Frank Stella image can be found <a href="https://github.com/jenerational/Walker-CreativeCoding-17/tree/master/P5/Frank%20Stella%20Loops">here</a>.</p>
+			</div>
+		</div>
+		<div class="box">
+			<div class="content">
+				<h2>October 5, 2017</h2>
+				<p>The program places a triangle when the user first clicks the screen, and then adds a triangle connecting the first triangle to the point where the user clicks next.</p>
+				<p>Liam and I started out by trying different approaches to the triangle tessalation. We ended up using his program with arrays because it was simpler when building out functions and using an array allowed for there to be less variables. We developed a working program that created triangles as you clicked, but not as you dragged your mouse, then created code so that the program would continually make triangles that weren't too small as you dragged your mouse.</p>
+				<center><figure><img src="img/cc/attempt3h.png" width="80%"/></figure></center>
+				<p>We meant to add a transformation but, unfortunately, underestimated the amount of time it would take. Our plan was, and still is at the moment, to make the past triangles created smaller as the user keeps making more triangles.</p>
+				<p>The code for the current program can be found <a href="https://github.com/jenerational/Walker-CreativeCoding-17/tree/master/P5/tri%20tesselation%20ver%202">here</a>.</p>
+			</div>
+		</div>
+		<div class="box">
+			<div class="content">
+				<h2>October 24, 2017</h2>
+				<p>Originially my idea for the midterm was going to be a "find your way out" sort of point and click game where you got locked in a dark attick. Then, it was going to show someone droppng a photo and it cracking in a way where the user could interact with the pieces. So, after discussing these ideas and getting both of them approved, I decided to change it. Welcome to Mouse Paint.</p>
+				<center><figure><img src="img/cc/titleShot.png" width="80%"/></figure></center>
+				<p>Mouse Paint is the <a href="https://www.slideshare.net/coralemmanuelli/mouse-paint">name of a children's book</a> by Ellen Stoll Walsh and used to be a favorite of mine. In it, there are mice that climb into jars of primary color paint and then dance in puddles of different colored paint to create secondary color paint. Covering yourself with paint is essentially a toddler's idea of a crazy good time, so the book also espoused the idea of painting on paper instead of yourself.</p>
+				<center><figure><img src="img/cc/pages1.png" width="40%"/> <img src="img/cc/pages2.png" width="40%"/></figure></center>
+				<center><figure><img src="img/cc/pages3.png" width="40%"/> <img src="img/cc/pages4.png" width="40%"/></figure></center>
+				<p>I was inspired by the book because of its straightforward storyline (mice go swimming in paint), it's nostalgia component (I think the arcade games in MAGNET bring that out in me), and more of all because of the easy way to integrate interactivity into the game (the player controls the mice and which puddles of paint they go into).</p>
+				<p>I explain all this because there are many aspects that seem out of place in the game without knowing of the book. Why mention the cat at all? Why only primary colors? Why is the art so bad and childish? And if I continue to work on it, I might change some of these aspects and find a way to combine pixel values or have the mice become browner with each puddle they pass through. </p>
+				<center><figure><img src="img/cc/game.png" width="60%"/></figure></center>
+				<p>I hope to improve upon it in the future. While I made a lot of photos with the mice's feet changing color every time they passed through a new puddle, I found it slowed down the program to have all of those preloaded. I also would like to add a way for mice to leave footprints as they walk which change color, and while it was something that I worked on, I wasn't able to finish that aspect in time for the submission.</p>
+			</div>
+		</div>
+		<div class="box">
+			<div class="content">
+				<h2>October 31, 3017</h2>
+				<p>I decided to combine the two assignments into one program. This is a program where a ball bounces off the four walls of the screen and plays "Do" "Re" "Mi" or "Fa" from blackbear's song do re mi. Clicking the mouse will toggle the play of the full song, with each key pressed starting a new iteration of that song. Clicking again will stop the full song from playing.</p>
+				<center><figure><img src="img/cc/20171031_1.png" width="80%"/></figure></center>
+				<p>The screen will let you know when the full song is being played. Hitting a wall will also change the color of the text.</p>
+				<center><figure><img src="img/cc/20171031_2.png" width="75%"/></figure></center>
+			</div>
+		</div>
+		<div class="box">
+			<div class="content">
+				<h2>November 2, 2017</h2>
+				<p>Due to the previous assignment also revolving around having bouncing balls, I decided that I would revise it in order to work smarter not harder and allow myself to play around a bit.</p>
+				<center><figure><img src="img/cc/20171102.png" width="80%"/></figure></center>
+				<p>I edited the program so that the full do re mi song was no longer played but kept the sound effect of the balls bouncing off the walls in. I also made it so that the user added the balls from whatever start point they wished by clicking at that point. I changed the way the ball was generated by randomizing the diameter within the range of 10 to 20, and by randomizing the speed and direction, by randomizing the initial xVel and yVel values to be anywhere from -5 to 5.</p>
+			</div>
+		</div>
+		<div class="box">
+			<div class="content">
+				<h2>November 7, 2017</h2>
+				<p>I love the sound of rain, and so I wanted my project to reflect that story weather vibe but with an uplifting or almost haunting sound rather than the sound of thunder or the typical rain sound. I wanted it to feel melodic. I went into Garage Band and played notes on the Glass Bells Synthesizer. I isolated the notes into 8 different tracks and then muted them separately in order to get a full octave of bells.</p>
+				<center><figure><img src="img/cc/20171107_1.png" width="80%"/></figure></center>
+				<p>My biggest problem has been actually playing the sounds. I tried really hard to sort them into an array and then call them in various ways, but I either got an error that the play() function didn't exist (even though it worked when I hardcoded a specific sound) or that the value was undefined. Ulitimately I had to change it so the sound that played reflected the x value of the droplet. The other problem I had was that I couldn't figure out how to implement the splice function so that the droplets were removed when they were no longer needed.</p>
+				<center><figure><img src="img/cc/20171107_2.png" width="80%"/></figure></center>
+				<p>I have one more problem that I'm dealing with, which is why this is a bit late. I realized too late that because the droplets never got deleted, the sound kept getting called for each frame, which led to a cacophony of bells being played even when no droplets landed. That's a problem I'm still trying to figure out, but ulimately the program runs for now.</p>
+				<center><figure><img src="img/cc/20171107_3.png" width="80%"/></figure></center>
+			</div>
+		</div>
+		<div class="box">
+			<div class="content">
+				<h2>November 9, 2017</h2>
+				<p>This program takes portrays all the named/recognized HTML colors from a JSON file and displays their color in a randomized spattering of circles.</p>
+				<center><figure><img src="img/cc/20171109_1.png" width="80%"/></figure></center>
+				<p>It also shares the name of the color alongside the mouse when the mouse hovers over a certain color. </p>
+				<center><figure><img src="img/cc/20171109_2.png" width="80%"/></figure></center>
+				<p>I set the background to default to a value of 200, though I realize that some colors would be harder to see on certain backgrounds. Because of this, I allowed the viewer to make the background color lighter or darker if they pressed the up or down arrow. This would allow for easier viewing of the dots and their names if the color was too similar to the shade it was on.</p>
+				<center><figure><img src="img/cc/20171109_3.png" width="40%"/> <img src="img/cc/20171109_4.png" width="40%"/></figure></center>
+				<p>My improvements for the future would be actually organizing the dots in an informative pattern. My plan is to be able to press r, g, or b, and have the dots organize in a way that has the highest color value first. I just figured out how to get a certain value from the color about an hour ago, and because of that I havent implemented this yet. While I will first simply organize in order of value of the r, g, and b, values, my hope is that I will then do it on r g b ratio so that the colors most leaning toward that color would be first in line when summoned.</p>
+			</div>
+		</div>
+		<div class="box">
+			<div class="content">
+				<h2>Final Project</h2>
+				<p>I have created an Audio Visualizer.</p>
+				<p>This project consisted of many obstacles, mostly consisting of inconstant internet and coding roadblocks that led to reevaluating my code, my goals, and my entire concept. I originally planned to do a final that consisted of two APIs, but as I fell behind in my being able to fully understand the documentation and being able to access the APIs due to lack of internet initially over break, I changed my project. The next version of my final was an audio visualizer that would have the visuals of a 2d mode, a 3d mode, and a 2d/3d mode, with the audio modes of microphone, preset songs, and then the Spotify API. I realized with time that doing a WebGL canvas and a frequency spectrum was impossible, not only on the same screen but within the same file. I thought about perhaps working on two files separately - the 2d visualizer and the 3d visualizer. Then, snow hit Maine and our wifi became inconsistent and I gave up on the idea of a Spotify API addition. While I had planned for the idea of not having a Spotify API - the updated proposal I sent you mentioned a visualizer for user curated/combined sounds - I realized that that didn’t work with the general idea of the project. My final is something I can easily see myself casting to my TV as I do work, changing between the visual modes as I found myself desiring a new way of seeing the sounds I was playing. I wanted to have one, cohesive file that acted as a complete visualizer. With that in mind, I worked on and finished my final.</p>
+				<p>The ideas I came up with resulted from a mixture of demonstrating knowledge regarding what we have learned this year and other audio functions, a desire to represent music data in a fun and interesting way, and adapting ideas from other projects I found when searching for various functions or figuring out limitations. I wanted to make sure I played with functions I hadn’t used before, so I made sure to seek out a new library and new ways of doing things (ie, pushing push, pop, transform, and rotate instead of simply drawing a snowflake). I decided to use the scribble library for the play/pause button, the “sun,” and the snowflakes.</p>
+				<p>The core audio functions I have are an ability to play and pause a song, the ability to switch between songs, the ability to use all visualizations with a microphone, and the ability to drag and drop a song into the project and have it play, a function which I chose in replacement of the ever changing third audio functions I had previously wanted.</p>
+				<p>I wanted the audio functions ...</p>
+				<p>{Read the rest of it <a href="https://docs.google.com/document/d/1e_TN5Zl_0RD3eGzYarlPCr3NwZ0P7AXaAQpf5YFpFwE/edit?usp=sharing">here</a>}</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
