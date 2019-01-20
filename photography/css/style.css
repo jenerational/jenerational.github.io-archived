@@ -95,6 +95,7 @@ nav h1 {
 .content {
   vertical-align: top;
   position: relative;
+  padding-left: 7px; 
   /*margin-left: 260px;
   width: calc(100% - 260px); */
   height: 100vh;
