@@ -207,12 +207,14 @@ nav h1 {
       font-family: 'Staatliches', sans-serif; 
       text-decoration: none; 
       letter-spacing: 8px;
+      font-size: 2em; 
 }
 
 .text-hover-img figcaption p {
   line-height: 1.5em;
   font-family: 'Staatliches', sans-serif; 
   letter-spacing: 5px;
+  margin-top: 10px; 
 }
 
 
