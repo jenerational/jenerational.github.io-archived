@@ -15,79 +15,8 @@
 
 body,
 html {
-  background: black;
+  background: white;
   color: black;
-}
-
-/* -- NAV -- */
-nav {
-  background: #f9f9f9;
-  color: black;
-  width: 255px;
-  height: 100vh;
-  display: inline-block;
-  font-family: 'Droid Sans', sans-serif;
-  padding: 50px; 
-  position: absolute;
-  float: none; 
-}
-
-nav h1 {
-	padding: 50px;
-	text-align: center;
-	font-size: 2em; 
-	/*font-family: 'Major Mono Display', 'Droid Sans', sans-serif; */
-	font-family: 'Major Mono Display', monospace;
-}
-
-.nav-top div {
-    display: block;
-    width: 100%;
-    text-align: center;
-}
-
-.nav-top div img{
-    margin: 25px auto;
-    -webkit-filter: invert(1);
-}
-
-.nav-top div h1{
-    font-size: 24px;
-    letter-spacing: 7px;
-    margin: 0 0 50px;
-    text-transform: uppercase;
-}
-
-.nav-top ul, ol {
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
-}
-
-.nav-top ul li {
-    min-height: 40px;
-    display: block;
-    color: black; 
-    font-size: 20px;
-    letter-spacing: 7px;  
-    text-transform: uppercase;
-    width: 100%;
-    text-decoration: none; 
-    font-family: serif; 
-}
-
-.nav-top ul li a {
-	text-decoration: none;
-}
-
-.nav-top ol li a {
-	font-family: sans-serif;
-    color: black;
-    font-size: 13px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    width: 100%;
-    text-decoration: none;
 }
 
 /* -- CONTENT -- */ 
