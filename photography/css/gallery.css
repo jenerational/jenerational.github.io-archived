@@ -100,8 +100,8 @@ nav h1 a {
   opacity: 0;
 }
 .m-p-g__thumbs-img:hover {
-  -webkit-filter: brightness(110%);
-          filter: brightness(110%);
+  -webkit-filter: brightness(120%);
+          filter: brightness(120%);
 }
 .m-p-g__fullscreen {
   position: fixed;
