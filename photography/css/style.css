@@ -96,11 +96,13 @@ nav h1 {
   vertical-align: top;
   position: relative;
   padding-left: 7px; 
+  padding-top: 5px; 
   /*margin-left: 260px;
   width: calc(100% - 260px); */
   height: 100vh;
   overflow: auto; 
   display: inline-block;
+  background-color: white; 
 }
 
 .content .img-container {
@@ -119,21 +121,8 @@ nav h1 {
 
 
 .content .img-container img {
-    /*position: absolute;
-    display: block;
-    vertical-align: left;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0px;
-    padding: 0px;
-    border: 0px; 
-    min-width: 100%;
-    min-height: 100%;
-    height: auto; */
-    /**/
-    display: inline-block;
-    vertical-align: left; 
+  display: inline-block;
+  vertical-align: left; 
   -o-object-fit: cover;
      object-fit: cover;
   width: 102%;
@@ -142,10 +131,10 @@ nav h1 {
   transition: .5s;
   will-change: transform;
   min-width: 100%;
-    min-height: 100%;*/
-    height: auto;  
-    left: 50%;
-    top: 50%;
+  min-height: 100%;
+  height: auto;  
+  left: 50%;
+  top: 50%;
 } 
 
 .content .img-container p {
