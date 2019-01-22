@@ -115,49 +115,6 @@ html {
     transition: .5s;
 }
 
-/* FIG CAPTION ALWAYS ON FOR MOBILE DEVICES */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  {
-  .img-container figcaption {
-    opacity: 1;
-    filter: blur(0px);
-    transform: translate(-50%, -50%) scale(1)
-  }
-} /* IPAD */
-
-@media only screen and (min-device-width : 375px) and (max-device-width : 812px)and (-webkit-device-pixel-ratio : 3) { 
-  .img-container figcaption {
-    opacity: 1;
-    filter: blur(0px);
-    transform: translate(-50%, -50%) scale(1)
-  }
-} /* IPHONE X */
-
-@media only screen and (min-device-width : 375px) and (max-device-width : 667px) { 
-  .img-container figcaption {
-    opacity: 1;
-    filter: blur(0px);
-    transform: translate(-50%, -50%) scale(1)
-  }
-} /* IPHONE 6 7 8 */
-
-@media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
-  .img-container figcaption {
-    opacity: 1;
-    filter: blur(0px);
-    transform: translate(-50%, -50%) scale(1)
-  }
- } /* IPHONE 6 7 8 PLUS */
-
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) { 
-  .img-container figcaption {
-    opacity: 1;
-    filter: blur(0px);
-    transform: translate(-50%, -50%) scale(1)
-  }
-} /* IPHONE 5 & 5S */
-
-/* END FIGCAPTION SPECIICS */
-
 .img-container:hover img {
   z-index: -1;
   -webkit-filter: brightness(40%) blur(3px);
@@ -197,6 +154,49 @@ html {
   letter-spacing: 5px;
   margin-top: 10px; 
 }
+
+/* FIG CAPTION ALWAYS ON FOR MOBILE DEVICES */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  {
+  .img-container figcaption {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translate(-50%, -50%) scale(.5)
+  }
+} /* IPAD */
+
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px)and (-webkit-device-pixel-ratio : 3) { 
+  .img-container figcaption {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translate(-50%, -50%) scale(.5)
+  }
+} /* IPHONE X */
+
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px) { 
+  .img-container figcaption {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translate(-50%, -50%) scale(.5)
+  }
+} /* IPHONE 6 7 8 */
+
+@media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
+  .img-container figcaption {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translate(-50%, -50%) scale(.5)
+  }
+ } /* IPHONE 6 7 8 PLUS */
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) { 
+  .img-container figcaption {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translate(-50%, -50%) scale(1)
+  }
+} /* IPHONE 5 & 5S */
+
+/* END FIGCAPTION SPECIICS */
 
 
 
