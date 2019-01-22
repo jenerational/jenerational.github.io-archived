@@ -139,13 +139,13 @@ html {
 }
 
 .img-container figcaption h1 {
-      position: relative;
-      display: inline-block;
-      text-align: center;
-      font-family: 'Staatliches', sans-serif; 
-      text-decoration: none; 
-      letter-spacing: 8px;
-      font-size: 2em; 
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  font-family: 'Staatliches', sans-serif; 
+  text-decoration: none; 
+  letter-spacing: 8px;
+  font-size: 2em; 
 }
 
 .text-hover-img figcaption p {
@@ -161,6 +161,7 @@ html {
     opacity: 1;
     filter: blur(0px);
     transform: translate(-50%, -50%) scale(.5)
+    border-bottom: 3px solid white;
   }
 } /* IPAD */
 
@@ -169,6 +170,7 @@ html {
     opacity: 1;
     filter: blur(0px);
     transform: translate(-50%, -50%) scale(.5)
+    border-bottom: 3px solid white;
   }
 } /* IPHONE X */
 
@@ -177,6 +179,7 @@ html {
     opacity: 1;
     filter: blur(0px);
     transform: translate(-50%, -50%) scale(.5)
+    border-bottom: 3px solid white;
   }
 } /* IPHONE 6 7 8 */
 
@@ -185,6 +188,7 @@ html {
     opacity: 1;
     filter: blur(0px);
     transform: translate(-50%, -50%) scale(.5)
+    border-bottom: 3px solid white;
   }
  } /* IPHONE 6 7 8 PLUS */
 
@@ -193,6 +197,7 @@ html {
     opacity: 1;
     filter: blur(0px);
     transform: translate(-50%, -50%) scale(1)
+    border-bottom: 3px solid white;
   }
 } /* IPHONE 5 & 5S */
 
