@@ -160,8 +160,7 @@ html {
   .img-container figcaption {
     opacity: 1;
     filter: blur(0px);
-    transform: translate(-50%, -50%) scale(.5)
-    border-bottom: 3px solid white;
+    font-size: 1em
   }
 } /* IPAD */
 
@@ -169,7 +168,10 @@ html {
   .img-container figcaption {
     opacity: 1;
     filter: blur(0px);
-    transform: translate(-50%, -50%) scale(.5)
+    font-size: 1em
+  }
+
+  .img-container figcaption h1 {
     border-bottom: 3px solid white;
   }
 } /* IPHONE X */
@@ -178,7 +180,10 @@ html {
   .img-container figcaption {
     opacity: 1;
     filter: blur(0px);
-    transform: translate(-50%, -50%) scale(.5)
+    font-size: 1em
+  }
+
+  .img-container figcaption h1 {
     border-bottom: 3px solid white;
   }
 } /* IPHONE 6 7 8 */
@@ -187,7 +192,10 @@ html {
   .img-container figcaption {
     opacity: 1;
     filter: blur(0px);
-    transform: translate(-50%, -50%) scale(.5)
+    font-size: 1em
+  }
+
+  .img-container figcaption h1 {
     border-bottom: 3px solid white;
   }
  } /* IPHONE 6 7 8 PLUS */
@@ -196,7 +204,10 @@ html {
   .img-container figcaption {
     opacity: 1;
     filter: blur(0px);
-    transform: translate(-50%, -50%) scale(1)
+    font-size: 1em; 
+  }
+
+  .img-container figcaption h1 {
     border-bottom: 3px solid white;
   }
 } /* IPHONE 5 & 5S */
