@@ -160,7 +160,8 @@ html {
   .img-container figcaption {
     opacity: 1;
     filter: blur(0px);
-    font-size: 1em
+    -webkit-transform: translate(-50%, -50%) scale(.25);
+            transform: translate(-50%, -50%) scale(.25); 
   }
 } /* IPAD */
 
@@ -168,7 +169,8 @@ html {
   .img-container figcaption {
     opacity: 1;
     filter: blur(0px);
-    font-size: 1em
+    -webkit-transform: translate(-50%, -50%) scale(.25);
+            transform: translate(-50%, -50%) scale(.25); 
   }
 
   .img-container figcaption h1 {
@@ -180,7 +182,8 @@ html {
   .img-container figcaption {
     opacity: 1;
     filter: blur(0px);
-    font-size: 1em
+    -webkit-transform: translate(-50%, -50%) scale(.25);
+            transform: translate(-50%, -50%) scale(.25); 
   }
 
   .img-container figcaption h1 {
@@ -192,7 +195,8 @@ html {
   .img-container figcaption {
     opacity: 1;
     filter: blur(0px);
-    font-size: 1em
+    -webkit-transform: translate(-50%, -50%) scale(.25);
+            transform: translate(-50%, -50%) scale(.25); 
   }
 
   .img-container figcaption h1 {
@@ -204,7 +208,8 @@ html {
   .img-container figcaption {
     opacity: 1;
     filter: blur(0px);
-    font-size: 1em; 
+    -webkit-transform: translate(-50%, -50%) scale(.25);
+            transform: translate(-50%, -50%) scale(.25); 
   }
 
   .img-container figcaption h1 {
