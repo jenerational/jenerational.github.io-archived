@@ -90,6 +90,14 @@ html {
 	color: white; 
 }
 
+.img-container:hover img {
+    z-index: -1;
+    -webkit-filter: brightness(40%) blur(3px);
+            filter: brightness(40%) blur(3px);
+    -webkit-transform: scale(1.75);
+            transform: scale(1.75);
+  }
+
 @media screen and (min-device-width: 1024px) {
   .img-container figcaption {
   position: absolute;
@@ -116,14 +124,6 @@ html {
       transition: .5s;
   }
 
-  .img-container:hover img {
-    z-index: -1;
-    -webkit-filter: brightness(40%) blur(3px);
-            filter: brightness(40%) blur(3px);
-    -webkit-transform: scale(1.75);
-            transform: scale(1.75);
-  }
-
   .img-container:hover figcaption {
     opacity: 1;
     -webkit-transform: translate(-50%, -50%) scale(1);
@@ -143,19 +143,35 @@ html {
 /* FIG CAPTION ALWAYS ON FOR MOBILE DEVICES */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  {
   .img-container figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    width: 70%;
+    text-align: center;
     opacity: 1;
     filter: blur(0px);
-    -webkit-transform: translate(-50%, -50%) scale(1));
-            transform: translate(-50%, -50%) scale(1)); 
+    /*-webkit-transform: translate(-50%, -50%) scale(1));
+            transform: translate(-50%, -50%) scale(1)); */
+  }
+
+  .img-container figcaption h1 {
+    border-bottom: 3px solid white;
   }
 } /* IPAD */
 
 @media only screen and (min-device-width : 375px) and (max-device-width : 812px)and (-webkit-device-pixel-ratio : 3) { 
   .img-container figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    width: 70%;
+    text-align: center;
     opacity: 1;
     filter: blur(0px);
-    -webkit-transform: translate(-50%, -50%) scale(1));
-            transform: translate(-50%, -50%) scale(1)); 
+    /*-webkit-transform: translate(-50%, -50%) scale(1));
+            transform: translate(-50%, -50%) scale(1)); */
   }
 
   .img-container figcaption h1 {
@@ -165,10 +181,16 @@ html {
 
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) { 
   .img-container figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    width: 70%;
+    text-align: center;
     opacity: 1;
     filter: blur(0px);
-    -webkit-transform: translate(-50%, -50%) scale(1));
-            transform: translate(-50%, -50%) scale(1)); 
+    /*-webkit-transform: translate(-50%, -50%) scale(1));
+            transform: translate(-50%, -50%) scale(1)); */
   }
 
   .img-container figcaption h1 {
