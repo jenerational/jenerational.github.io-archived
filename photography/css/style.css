@@ -182,8 +182,8 @@ html {
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) { 
   .img-container figcaption {
     position: absolute;
-    top: 75%;
-    left: 75%;
+    top: 25%;
+    left: 25%;
     color: white;
     width: 70%;
     text-align: center;
