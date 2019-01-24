@@ -189,8 +189,8 @@ html {
     text-align: center;
     opacity: 1;
     filter: blur(0px);
-    /*-webkit-transform: translate(-50%, -50%) scale(1));
-            transform: translate(-50%, -50%) scale(1)); */
+    -webkit-transform: translate(-50%, -50%) scale(1));
+            transform: translate(-50%, -50%) scale(1)); 
   }
 
   .img-container figcaption h1 {
