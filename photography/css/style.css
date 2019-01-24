@@ -90,8 +90,9 @@ html {
 	color: white; 
 }
 
-.img-container figcaption {
-	position: absolute;
+@media screen and (min-device-width: 1024px) {
+  .img-container figcaption {
+  position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%) scale(2);
@@ -103,56 +104,40 @@ html {
   transition: .5s;
   width: 70%;
   text-align: center;
-}
+  }
 
-.img-container:hover figcaption h1:after {
-    content: " ";
-    width: 0%;
-    position: absolute;
-    border-bottom: 3px solid white;
-    left: 50%;
-    bottom: 0%;
-    transition: .5s;
-}
+  .img-container:hover figcaption h1:after {
+      content: " ";
+      width: 0%;
+      position: absolute;
+      border-bottom: 3px solid white;
+      left: 50%;
+      bottom: 0%;
+      transition: .5s;
+  }
 
-.img-container:hover img {
-  z-index: -1;
-  -webkit-filter: brightness(40%) blur(3px);
-          filter: brightness(40%) blur(3px);
-  -webkit-transform: scale(1.75);
-          transform: scale(1.75);
-}
+  .img-container:hover img {
+    z-index: -1;
+    -webkit-filter: brightness(40%) blur(3px);
+            filter: brightness(40%) blur(3px);
+    -webkit-transform: scale(1.75);
+            transform: scale(1.75);
+  }
 
-.img-container:hover figcaption {
-  opacity: 1;
-  -webkit-transform: translate(-50%, -50%) scale(1);
-          transform: translate(-50%, -50%) scale(1);
-  -webkit-filter: blur(0px);
-          filter: blur(0px);
-  z-index: 1;
-}
+  .img-container:hover figcaption {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    z-index: 1;
+  }
 
-.img-container:hover figcaption h1::after {
-  width: 100%;
-  left: 0%;
-  bottom: -15%;
-}
-
-.img-container figcaption h1 {
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  font-family: 'Staatliches', sans-serif; 
-  text-decoration: none; 
-  letter-spacing: 8px;
-  font-size: 2em; 
-}
-
-.text-hover-img figcaption p {
-  line-height: 1.5em;
-  font-family: 'Staatliches', sans-serif; 
-  letter-spacing: 5px;
-  margin-top: 10px; 
+  .img-container:hover figcaption h1::after {
+    width: 100%;
+    left: 0%;
+    bottom: -15%;
+  }
 }
 
 /* FIG CAPTION ALWAYS ON FOR MOBILE DEVICES */
@@ -218,6 +203,24 @@ html {
 } /* IPHONE 5 & 5S */
 
 /* END FIGCAPTION SPECIICS */
+
+
+.img-container figcaption h1 {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  font-family: 'Staatliches', sans-serif; 
+  text-decoration: none; 
+  letter-spacing: 8px;
+  font-size: 2em; 
+}
+
+.text-hover-img figcaption p {
+  line-height: 1.5em;
+  font-family: 'Staatliches', sans-serif; 
+  letter-spacing: 5px;
+  margin-top: 10px; 
+}
 
 
 
