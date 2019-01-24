@@ -182,19 +182,18 @@ html {
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) { 
   .img-container figcaption {
     position: absolute;
-    top: 25%;
-    left: 25%;
+    top: 30%;
+    left: 15%;
     color: white;
     width: 70%;
     text-align: center;
     opacity: 1;
     filter: blur(0px);
-    -webkit-transform: translate(-50%, -50%) scale(1));
-            transform: translate(-50%, -50%) scale(1)); 
   }
 
   .img-container figcaption h1 {
     border-bottom: 3px solid white;
+    font-size: 3em; 
   }
 } /* IPHONE 6 7 8 */
 
