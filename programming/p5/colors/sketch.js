@@ -2,6 +2,20 @@
 var colArr = []; 
 var caSz = 0; 
 var bgCol = 200; 
+//mouse pressed
+var mClick = false; 
+// color vars
+var red;
+var green;
+var blue; 
+// darker colors
+var dRed;
+var dGreen;
+var dBlue;
+//lighter colors
+var lRed;
+var lGreen;
+var lBlue; 
 
 function preload() {
   hexData = loadJSON("assets/web_colors.json"); 
@@ -25,6 +39,7 @@ function draw() {
   for (var i = 0; i < caSz; i++) {
     colArr[i].display(); 
   }
+  down = false; 
 }
 
 function keyPressed() {
@@ -39,6 +54,11 @@ function keyPressed() {
     }
     console.log(bgCol);
   }
+}
+
+function mousePressed() {
+  mClick = true; 
+  colName = false;
 }
 
 //  CLASSES
@@ -56,7 +76,23 @@ function ColDot(name, hex) {
       if (mouseY >= this.y-this.dia/2 && mouseY < this.y + this.dia/2) {
         background(250, 250, 250, .2);
         textSize(20);
-        text(this.name, mouseX+10, mouseY+10); 
+        if (colName=true){
+          text(this.name, mouseX+10, mouseY+10); 
+        }
+        if(mClick) {
+          red = unhex(this.color.substring(0, 2));
+          green = unhex(this.color.substring(2, 4));
+          blue = unhex(str.substring(4, 6));
+          console.log(red+", "+green+", "+blue)
+          dRed = (red-50>0) ? red-50:0; 
+          dBlue = (blue-50>0) ? blue-50:0; 
+          dGreen = (green-50>0) ? green-50:0; 
+          lRed = (red+50<255) ? red+50:255; 
+          lBlue = (blue+50<255) ? blue+50:255;
+          lGreen = (green+50<255) ? green+50:255;
+          //var c = ;
+          //ellipse
+        }
       }
     }
   }
