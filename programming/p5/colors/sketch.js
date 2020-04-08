@@ -63,14 +63,14 @@ function ColDot(name, hex) {
   this.name = name; 
   this.color = color(hex); 
   //console.log(this.color); 
-  this.dia = 11; 
+  this.dia = 20; 
   this.display = function() {
     fill(this.color); 
     ellipse (this.x, this.y, this.dia, this.dia); 
     if (mouseX >= this.x-this.dia/2 && mouseX < this.x + this.dia/2) {
       if (mouseY >= this.y-this.dia/2 && mouseY < this.y + this.dia/2) {
         background(250, 250, 250, .2);
-        textSize(15); 
+        textSize(20); 
         text(this.name, mouseX+10, mouseY+10); 
           //BAHAHAHAHAHAHA
           //thRed =str(this.color);
