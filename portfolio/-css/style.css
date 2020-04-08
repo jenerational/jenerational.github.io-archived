@@ -25,7 +25,7 @@
   text-align: center;
   color: white;
   position: absolute;
-  top: 20%;
+  top: 12.5%;
   left: 50%;
   text-shadow: 1px 1px 1px #999,2px 2px 1px #999,3px 3px 1px #999,4px 4px 1px #999;
   transform: translate(-50%);
@@ -50,7 +50,9 @@
   text-align: center;
   color: white;
   position: absolute;
-  top: 63%;
+  top: 60%;
+  padding-top: 60px; 
+  padding-bottom: 50px; 
   left: 50%;
   text-shadow: 1px 1px 1px #999,2px 2px 1px #999,3px 3px 1px #999,4px 4px 1px #999;
   transform: translate(-50%);
@@ -64,6 +66,7 @@
   padding:0;
 }
 #categories{
+    padding-top: 20px; 
   overflow:hidden;
   width: 90%;
   margin:0 auto;
@@ -119,11 +122,26 @@
   
 }
 
+/* programming art */
 #categories li.black h1, #categories li.black p {
     background-color: rgba(35, 20, 3, 1);
     color: white;
 }
-
+/* digital art */
+#categories li.dgrey h1, #categories li.dgrey p {
+    background-color: rgba(91, 79, 68, 1);
+    color: white;
+}
+/* photography */
+#categories li.grey h1, #categories li.grey p {
+    background-color: rgba(171, 159, 147, 1);
+    color: black;
+}
+/* photo manipulation */
+#categories li.lgrey h1, #categories li.lgrey p {
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
+}
 
 /* HEX CONTENT */
 /*#categories li img{
