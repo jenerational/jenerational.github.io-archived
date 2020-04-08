@@ -4,6 +4,7 @@ var caSz = 0;
 var bgCol = 200; 
 //mouse pressed
 var mClick = false; 
+var colName; 
 // color vars
 var red;
 var green;
@@ -90,8 +91,10 @@ function ColDot(name, hex) {
           lRed = (red+50<255) ? red+50:255; 
           lBlue = (blue+50<255) ? blue+50:255;
           lGreen = (green+50<255) ? green+50:255;
-          //var c = ;
-          //ellipse
+          fill(lRed,lGreen,lBlue); 
+          ellipse(this.x+this.dia, this.y, this.dia, this.dia); 
+          fill(dRed,dGreen,dBlue); 
+          ellipse(this.x-this.dia, this.y, this.dia, this.dia);
         }
       }
     }
