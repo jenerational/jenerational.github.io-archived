@@ -56,16 +56,15 @@ function setup() {
 function draw() {
     //  AUD MODE IF STATEMENTS
     level = amplitude.getLevel();
+    var spectrum = fft.analyze();
     //  VIS MODE DRAW
     background(0); 
     if (visMode == 0) { 
         //  FROOT
         image(frootImg, (width/2-frootImg.width/2), (height/2-frootImg.height/2)); 
         //  threshold fruit loops
-        fft.analyze();
         pd.update(fft); 
-        if (pd.isDetected || level >.6) {
-            console.log("vm0"); 
+        if (pd.isDetected || level >.5) {
             randx = random(40, windowWidth-40);
             randy = random(40, windowHeight-40);
             var randCol = random(fCol);
@@ -103,6 +102,22 @@ function draw() {
         rect(windowWidth*.25, windowHeight*.45, windowWidth*.5, windowHeight*.3, 20, 20, 20, 20);
         fill(0,0,0); 
         rect(windowWidth*.275, windowHeight*.5, windowWidth*.45, windowHeight*.2, 20, 20, 20, 20);
+        fill(175,0,0); 
+        textFont('Helvetica', 100)
+        text("8 : 3 8", width*.375, height*.635); 
+        textFont('Helvetica', 40)
+        text("am", width*.62, height*.635);
+        // alarm spectrum
+        for (var i = 0; i< spectrum.length; i+=10) {
+            var x = map(i, 0, spectrum.length, windowWidth*.276, windowWidth*.722);
+            var h = -height + map(spectrum[i], 0, 255, height*.98, height*.9);
+            //dgrey grass
+            stroke(1);
+            stroke(220,0,0);
+            fill(255,0,0);
+            rect(x, windowHeight*.67, (windowWidth*.40 / spectrum.length) * 10, h+windowHeight*.01);
+        }
+
         //  SCRIBBLE SNOWFLAKE
         
         if (level > .6) {                   //  if "v loud", extra extra snowflakes  
@@ -111,7 +126,10 @@ function draw() {
             
         }
          
-        //  AMP WAVE
+        
+    } else if (visMode == 2) { 
+        // LAPUTA
+        //  amp wave
         var w = width/(ampLevs.length * spacing);
         ampLevs.push(level);
         ampLevs.splice(0, 1);
@@ -124,7 +142,7 @@ function draw() {
             rect(x, (height/5*2)-(h/2), w, h);
             rect(width - x, (height/5*2)-(h/2), w, h);
         }
-        //  WAVEFORM
+        //  waveform
         var waveform = fft.waveform();
         noFill();
         beginShape();
@@ -136,9 +154,6 @@ function draw() {
             vertex(x, y);
         }
         endShape();
-    } else if (visMode == 2) { 
-        // LAPUTA
-        
     }
     // when song has ended, playing=false
     if (curSong) {curSong.onended(fPlay); }
