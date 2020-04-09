@@ -1,24 +1,25 @@
+//  BEFORE COMMIT: instr = true, audMode = 1, visMode = 0
 var cnv; 
-var INSTR = true;   // shows instructions
+var INSTR = false;   // shows instructions
 //sensitivities
 var ampSense = 2;  
 //general mode values 
 var level;          //  amplitude val
 //function modes
 var audMode = 1;    // mic, chosen song/drag n drop
-var visMode = 0; 
+var visMode = 1; 
 //visMode 0 values
 var threshold = 0.1, cutoff = 0, decayRate = 0.95; 
 var fruit = [];
 var fruitNum = 0; 
 var fCol = [[229, 217, 27], [239, 93, 12], [195, 47, 83], [119, 0, 243], [39, 121, 210], [20, 186, 103]];
+    //E5D91B, '#EF5D0C', '#C32F53', '#7700F3', '#2779D2', '#14BA67'];
 let frootImg; 
-//E5D91B, '#EF5D0C', '#C32F53', '#7700F3', '#2779D2', '#14BA67'];
 //visMode 1 values
+var hr, mint; 
 var ampLevs = new Array(55);
 var spacing = 10; 
 //vis Mode 2 values
-var levBump;
 //audMode 1 values
 var micOn = false; 
 //audMode 2 values
@@ -51,6 +52,7 @@ function setup() {
     pd = new p5.PeakDetect();  
     //  allow for drag and drop onto canvas
     cnv.drop(gotFile); 
+    console.log(hour());
 }
 
 function draw() {
@@ -93,6 +95,7 @@ function draw() {
         endShape();
     } else if (visMode == 1) {
         //  GET UP
+        console.log("got here");
         // alarm design
         background(0); 
         noStroke();
@@ -102,21 +105,23 @@ function draw() {
         rect(windowWidth*.25, windowHeight*.45, windowWidth*.5, windowHeight*.3, 20, 20, 20, 20);
         fill(0,0,0); 
         rect(windowWidth*.275, windowHeight*.5, windowWidth*.45, windowHeight*.2, 20, 20, 20, 20);
+        // get time
+        hr=hour();
+        mint=minute(); 
+        console.log("got here"); 
         fill(175,0,0); 
         textFont('Helvetica', 100)
-        text("8 : 3 8", width*.375, height*.635); 
-        textFont('Helvetica', 40)
-        text("am", width*.62, height*.635);
+        //text(nf(hr, 2, 0) + ':' + nf(mint, 2, 0), width*.375, height*.635); 
         // alarm spectrum
         for (var i = 0; i< spectrum.length; i+=10) {
             var x = map(i, 0, spectrum.length, windowWidth*.276, windowWidth*.722);
             var h = -height + map(spectrum[i], 0, 255, height*.98, height*.9);
             //dgrey grass
-            stroke(1);
+            /*stroke(1);
             stroke(220,0,0);
             fill(255,0,0);
             rect(x, windowHeight*.67, (windowWidth*.40 / spectrum.length) * 10, h+windowHeight*.01);
-        }
+        */}
 
         //  SCRIBBLE SNOWFLAKE
         
