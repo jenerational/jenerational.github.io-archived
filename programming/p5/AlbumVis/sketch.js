@@ -1,5 +1,5 @@
 var cnv; 
-var INSTR = false;   // shows instructions
+var INSTR = true;   // shows instructions
 //sensitivities
 var ampSense = 2;  
 //general mode values 
@@ -23,6 +23,7 @@ var levBump;
 var micOn = false; 
 //audMode 2 values
 var playing = false; 
+var songChange = false;
 var froot, getup, laputa;
 var curSong; 
 
@@ -30,8 +31,7 @@ var curSong;
 
 function preload() {
     //  font preload
-    //songsel = loadFont("assets/Channel.ttf");
-    //raleway = loadFont("assets/Raleway.ttf"); 
+    raleway = loadFont("assets/Raleway.ttf"); 
     //  music preload
     froot = loadSound('assets/Froot.mp3');
     getup = loadSound('assets/GetUp.mp3');
@@ -64,10 +64,10 @@ function draw() {
         //  threshold fruit loops
         fft.analyze();
         pd.update(fft); 
-        if (pd.isDetected) {
+        if (pd.isDetected || level >.6) {
             console.log("vm0"); 
             randx = random(40, windowWidth-40);
-            randy = random(0, windowHeight-100);
+            randy = random(40, windowHeight-40);
             var randCol = random(fCol);
             fruit.push(new Loop(randx, randy, randCol));
             fruitNum += 1; 
@@ -144,28 +144,23 @@ function draw() {
     if (curSong) {curSong.onended(fPlay); }
     // instructions
     if (INSTR == true) {
-        fill('rgba(255,255,255,.4)');
+        fill('rgba(255,255,255,.65)');
         rect(0,0,windowWidth, windowHeight);
         rect(100, 100, windowWidth - 200, windowHeight - 200); 
-        stroke(35); 
-        fill(35); 
-        //textFont(songsel, 20);
-        text("Audio Visualizer", 130, 150);
-        //textFont(raleway, 15);
-        text("Press '1' to get sound from your microphone.", 150, 190); 
-        text("Press '2' to select a song from the loop down menu.", 150, 215);
-        text("Drag an mp3 onto the screen to play it.", 150, 240);
-        text("Press 'm' to toggle the visualization mode.", 150, 285);
-        text("Press 'c' to clear the circles in the sunset mode.", 150, 310);
-        text("Click the 'i' in the bottle right corner to bring up the instructions.", 150, 355);
-        text("Click anywhere to continue.", 150, 400);
+        noStroke(); 
+        textFont(raleway, 25); 
+        fill(40); 
+        text("This audio visualizer is not designed for mobile devices.", 150, 170); 
+        text("Press '1' to get sound from your microphone.", 150, 200); 
+        text("Press '2' to play from preselected songs for each design.", 150, 230);
+        text("Drag an mp3 onto the screen to play it.", 150, 260);
+        text("Press 'm' or left and right keys to toggle the visualization mode.", 150, 310);
+        text("Press 'p' or space to pause and play the song.", 150, 340);
+        text("Songs: 'Froot' by Marina and the Diamonds", 150, 390);
+        text("'Get Up' by clipping", 233, 420);
+        text("'Laputa' by Hiatus Kyote", 233, 450);
+        text("Click anywhere to continue.", 150, 500);
     }
-    noFill(); 
-    strokeWeight(2);
-    stroke(160);
-    ellipse(width-30, height-30, 30, 30); 
-    //textFont(songsel, 18);
-    text("i", width-35, height-22);
 }
 
 
@@ -219,7 +214,14 @@ function keyPressed() {
             amplitude.setInput(); 
             amplitude.smooth(0.6);
         }
-    } else if (key == 'P' && audMode == 1) { //  play pause
+    } else if (key == 'X') {
+        if (playing == true) {
+            // if music
+            curSong.stop(); 
+            songChange = true;
+            playing = false; //now no music
+        }
+    } else if ((key == 'P' || key == ' ') && audMode == 1) { //  play pause
         //play pause controlled w 'p'
         if (playing == true) {
             // if music
@@ -227,7 +229,7 @@ function keyPressed() {
             playing = false; //now no music
         } 
         else { //(playing == false) 
-            if (curSong) {
+            if (curSong && songChange==true) {
                 // if there is a song, play it
                 curSong.play(); 
                 playing = true; //now music
@@ -245,14 +247,20 @@ function keyPressed() {
                     curSong.play();
                     playing=true; 
                 }
+                songChange=false;
             }
         }
     }
     //  mode switch
-    else if (key == 'M') {
+    else if (key == 'M' || keyCode === RIGHT_ARROW) {
         visMode += 1; 
         if (visMode == 3) {
             visMode = 0; 
+        }
+    } else if (keyCode === LEFT_ARROW) {
+        visMode -= 1;
+        if (visMode == -1) {
+            visMode=2; 
         }
     }
 }
@@ -263,11 +271,6 @@ function mousePressed() {
     if (INSTR == true) {
         INSTR = false; 
         console.log("instr down"); 
-    }
-    //  INFO CLICK
-    if (mouseX > width-60 && mouseY > height-60) {
-        console.log("instr up"); 
-        INSTR = true;      
     }
 }
 
@@ -293,12 +296,12 @@ function Loop(randx, randy, col) {
         stroke(255,255,255,this.alpha);
         ellipse(this.x, this.y, this.diam, this.diam); 
         if (this.diam>20){
-            fill(0);
+            fill(0,0,0,this.alpha);
             ellipse(this.x, this.y, this.dia2, this.dia2);
         }
         this.diam+=2; 
-        this.dia2+=1.5
-        this.alpha-=5;
+        this.dia2+=1.25
+        this.alpha-=2.5;
     }
     this.pastDia = function() {
         if (this.alpha < 0) {
