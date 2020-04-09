@@ -30,8 +30,8 @@ var curSong;
 
 function preload() {
     //  font preload
-    songsel = loadFont("assets/Channel.ttf");
-    raleway = loadFont("assets/Raleway.ttf"); 
+    //songsel = loadFont("assets/Channel.ttf");
+    //raleway = loadFont("assets/Raleway.ttf"); 
     //  music preload
     froot = loadSound('assets/Froot.mp3');
     getup = loadSound('assets/GetUp.mp3');
