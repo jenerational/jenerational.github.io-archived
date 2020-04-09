@@ -149,9 +149,9 @@ function draw() {
         rect(100, 100, windowWidth - 200, windowHeight - 200); 
         stroke(35); 
         fill(35); 
-        textFont(songsel, 20);
+        //textFont(songsel, 20);
         text("Audio Visualizer", 130, 150);
-        textFont(raleway, 15);
+        //textFont(raleway, 15);
         text("Press '1' to get sound from your microphone.", 150, 190); 
         text("Press '2' to select a song from the loop down menu.", 150, 215);
         text("Drag an mp3 onto the screen to play it.", 150, 240);
@@ -164,7 +164,7 @@ function draw() {
     strokeWeight(2);
     stroke(160);
     ellipse(width-30, height-30, 30, 30); 
-    textFont(songsel, 18);
+    //textFont(songsel, 18);
     text("i", width-35, height-22);
 }
 
