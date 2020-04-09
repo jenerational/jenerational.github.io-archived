@@ -67,7 +67,6 @@ function setup() {
         var isSq = random([true, false]); 
         boxes.push(new Box(dim, randx, randy, randcol, ynFill, isSq));
     }
-
 }
 
 function draw() {
