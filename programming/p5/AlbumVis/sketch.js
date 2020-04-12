@@ -16,10 +16,14 @@ var fCol = [[229, 217, 27], [239, 93, 12], [195, 47, 83], [119, 0, 243], [39, 12
     //E5D91B, '#EF5D0C', '#C32F53', '#7700F3', '#2779D2', '#14BA67'];
 let frootImg; 
 //visMode 1 values
-var hr, mint; 
+var hr, mint, sec;
+var circs = [];
+var circNum = 0;
+var switchInterval = 2000; // for circle timing change if no amp (2 sec)
+var timeOfLastSwitch = 0;
+//vis Mode 2 values               
 var ampLevs = new Array(55);
 var spacing = 10; 
-//vis Mode 2 values
 //audMode 1 values
 var micOn = false; 
 //audMode 2 values
@@ -27,7 +31,6 @@ var playing = false;
 var songChange = false;
 var froot, getup, laputa;
 var curSong; 
-
 
 
 function preload() {
@@ -52,7 +55,15 @@ function setup() {
     pd = new p5.PeakDetect();  
     //  allow for drag and drop onto canvas
     cnv.drop(gotFile); 
-    console.log(hour());
+
+    //set up for circ
+    var circSpace = 60;
+    for (var x = 0; x <= width; x += circSpace) {
+        for (var y = 0; y <= height*.70; y += circSpace) {
+            circs.push(new Circ(x, y, circSpace));
+            circNum += 1; 
+        }
+    }
 }
 
 function draw() {
@@ -95,23 +106,46 @@ function draw() {
         endShape();
     } else if (visMode == 1) {
         //  GET UP
-        console.log("got here");
-        // alarm design
+        //background colors
         background(0); 
+         //  Circ color change
+        for (var i=0; i<circNum; i++) {
+            circs[i].display();
+        }
+        if (level > .4) {                   //  if "v loud", recolor circles 
+            for (var i=0; i<circNum; i++) {
+                circs[i].reCirc();
+            }
+            timeOfLastSwitch = millis();
+        } else if ((millis() - timeOfLastSwitch > switchInterval) && playing) {
+            for (var i=0; i<circNum; i++) {
+                circs[i].reCirc();
+            }
+            timeOfLastSwitch = millis(); 
+        }
+        // alarm design
+        stroke(0);
+        fill(50);
+        rect(0, windowHeight*.66, windowWidth, windowHeight*.34);
         noStroke();
-        fill(60);
-        rect(0, windowHeight*.66, windowWidth, windowHeight*.34)
-        fill(120);
+        fill(80);
         rect(windowWidth*.25, windowHeight*.45, windowWidth*.5, windowHeight*.3, 20, 20, 20, 20);
+        fill(120);
+        rect(windowWidth*.262, windowHeight*.475, windowWidth*.475, windowHeight*.25, 20, 20, 20, 20);
         fill(0,0,0); 
         rect(windowWidth*.275, windowHeight*.5, windowWidth*.45, windowHeight*.2, 20, 20, 20, 20);
         // get time
         hr=hour();
-        mint=minute(); 
-        console.log("got here"); 
-        fill(175,0,0); 
+        mint=minute();
+        sec=second();  
         textFont('Helvetica', 100)
-        //text(nf(hr, 2, 0) + ':' + nf(mint, 2, 0), width*.375, height*.635); 
+        //clock drop shadows 
+        fill(130,0,0); 
+        text(nf(hr, 2, 0) + ' : ' + nf(mint, 2, 0) + " : " + nf(sec, 2, 0), width*.305, height*.645); 
+        text(nf(hr, 2, 0) + ' : ' + nf(mint, 2, 0) + " : " + nf(sec, 2, 0), width*.303, height*.643); 
+        //actual time 
+        fill(200,0,0); 
+        text(nf(hr, 2, 0) + ' : ' + nf(mint, 2, 0) + " : " + nf(sec, 2, 0), width*.3, height*.64); 
         // alarm spectrum
         for (var i = 0; i< spectrum.length; i+=10) {
             var x = map(i, 0, spectrum.length, windowWidth*.276, windowWidth*.722);
@@ -123,13 +157,7 @@ function draw() {
             rect(x, windowHeight*.67, (windowWidth*.40 / spectrum.length) * 10, h+windowHeight*.01);
         */}
 
-        //  SCRIBBLE SNOWFLAKE
-        
-        if (level > .6) {                   //  if "v loud", extra extra snowflakes  
-            
-        } else if (level > .35) {                   //  if "loud", extra snowflakes  
-            
-        }
+       
          
         
     } else if (visMode == 2) { 
@@ -235,11 +263,12 @@ function keyPressed() {
             amplitude.smooth(0.6);
         }
     } else if (key == 'X') {
-        if (playing == true) {
+        if (curSong) {
             // if music
             curSong.stop(); 
             songChange = true;
             playing = false; //now no music
+            console.log("pl: "+playing+" cursong: "+curSong+"song ch: "+songChange);
         }
     } else if ((key == 'P' || key == ' ') && audMode == 1) { //  play pause
         //play pause controlled w 'p'
@@ -247,9 +276,10 @@ function keyPressed() {
             // if music
             curSong.pause(); 
             playing = false; //now no music
+            console.log("pl: "+playing+" cursong: "+curSong+"song ch: "+songChange);
         } 
         else { //(playing == false) 
-            if (curSong && songChange==true) {
+            if (curSong && songChange==false) {
                 // if there is a song, play it
                 curSong.play(); 
                 playing = true; //now music
@@ -327,6 +357,21 @@ function Loop(randx, randy, col) {
         if (this.alpha < 0) {
             return true;
         }
+    }
+}
+
+// Circles Class
+function Circ(x,y,dia) {
+    this.color = random(30,250);
+    this.dia = dia; 
+    this.display = function() {
+        noFill(); 
+        strokeWeight(1); 
+        stroke(this.color); 
+        ellipse(x, y, this.dia*2, this.dia*2);
+    }
+    this.reCirc = function() {
+        this.color = random(30,250);
     }
 }
 
