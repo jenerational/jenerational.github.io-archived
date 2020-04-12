@@ -17,6 +17,7 @@ var fCol = [[229, 217, 27], [239, 93, 12], [195, 47, 83], [119, 0, 243], [39, 12
 let frootImg; 
 //visMode 1 values
 var hr, mint, sec;
+var circSpace = 60;
 var circs = [];
 var circNum = 0;
 var switchInterval = 2000; // for circle timing change if no amp (2 sec)
@@ -57,7 +58,6 @@ function setup() {
     cnv.drop(gotFile); 
 
     //set up for circ
-    var circSpace = 60;
     for (var x = 0; x <= width; x += circSpace) {
         for (var y = 0; y <= height*.70; y += circSpace) {
             circs.push(new Circ(x, y, circSpace));
@@ -107,12 +107,13 @@ function draw() {
     } else if (visMode == 1) {
         //  GET UP
         //background colors
-        background(0); 
+        background(240); 
          //  Circ color change
         for (var i=0; i<circNum; i++) {
             circs[i].display();
         }
-        if (level > .4) {                   //  if "v loud", recolor circles 
+        console.log("lvl: "+level);
+        if (level > .3 || (curSong==getup && level > .18)) {                   //  if "v loud", recolor circles 
             for (var i=0; i<circNum; i++) {
                 circs[i].reCirc();
             }
@@ -141,11 +142,12 @@ function draw() {
         textFont('Helvetica', 100)
         //clock drop shadows 
         fill(130,0,0); 
-        text(nf(hr, 2, 0) + ' : ' + nf(mint, 2, 0) + " : " + nf(sec, 2, 0), width*.305, height*.645); 
-        text(nf(hr, 2, 0) + ' : ' + nf(mint, 2, 0) + " : " + nf(sec, 2, 0), width*.303, height*.643); 
+        textAlign(CENTER,CENTER);
+        text(nf(hr, 2, 0) + ' : ' + nf(mint, 2, 0) + " : " + nf(sec, 2, 0), width*.505, height*.605); 
+        text(nf(hr, 2, 0) + ' : ' + nf(mint, 2, 0) + " : " + nf(sec, 2, 0), width*.503, height*.603); 
         //actual time 
         fill(200,0,0); 
-        text(nf(hr, 2, 0) + ' : ' + nf(mint, 2, 0) + " : " + nf(sec, 2, 0), width*.3, height*.64); 
+        text(nf(hr, 2, 0) + ' : ' + nf(mint, 2, 0) + " : " + nf(sec, 2, 0), width*.5, height*.6); 
         // alarm spectrum
         for (var i = 0; i< spectrum.length; i+=10) {
             var x = map(i, 0, spectrum.length, windowWidth*.276, windowWidth*.722);
@@ -241,7 +243,7 @@ function fPlay(curSong) {
 
 //  =|=|= KEY PRESSED IF STATEMENTS =|=|=
 function keyPressed() {
-    console.log(key);
+    //console.log(key);
     if (key == '1') {
         if (curSong) {curSong.stop();}
         mic.start();
@@ -276,7 +278,7 @@ function keyPressed() {
             // if music
             curSong.pause(); 
             playing = false; //now no music
-            console.log("pl: "+playing+" cursong: "+curSong+"song ch: "+songChange);
+            console.log("pl: "+playing+" cursong: "+curSong+" song ch: "+songChange);
         } 
         else { //(playing == false) 
             if (curSong && songChange==false) {
@@ -360,23 +362,31 @@ function Loop(randx, randy, col) {
     }
 }
 
-// Circles Class
+// Circles CLASS
 function Circ(x,y,dia) {
-    this.color = random(30,250);
+    this.color = random(0,220);
     this.dia = dia; 
     this.display = function() {
         noFill(); 
-        strokeWeight(1); 
+        strokeWeight(3); 
         stroke(this.color); 
         ellipse(x, y, this.dia*2, this.dia*2);
     }
     this.reCirc = function() {
-        this.color = random(30,250);
+        this.color = random(0,220);
     }
 }
 
 //  RESIZE WINDOW
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+    resizeCanvas(windowWidth, windowHeight);
+    circs.splice(0, circsNum);    //  rids array of circs to start anew
+    circNum = 0;  
+    for (var x = 0; x <= width; x += circSpace) {
+        for (var y = 0; y <= height*.70; y += circSpace) {
+            circs.push(new Circ(x, y, circSpace));
+            circNum += 1; 
+        }
+    }
 } 
 
