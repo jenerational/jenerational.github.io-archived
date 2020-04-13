@@ -170,14 +170,14 @@ function draw() {
         ampLevs.push(level);
         ampLevs.splice(0, 1);
         //  display ampLevs
-        stroke(73,195,244);
+        stroke(73,150,200);
         fill(214,245,247); 
         strokeWeight(1); 
         for (var i = 0; i < 60; i++) {
-            var x = map(i, ampLevs.length, 0, (width*.6), width);
+            var x = map(i, ampLevs.length, 0, (width*.62), width);
             var h = map(ampLevs[i], 0, 0.6, 0, height/2);
-            rect(x+width*.03, (height*.35)-(h/2), w, h);  // rect going right
-            rect(width*1.03 - x, (height*.35)-(h/2), w, h);  //rect going left
+            rect(x+width*.03, (height*.31)-(h/2), w, h);  // rect going right
+            rect(width*1.03 - x, (height*.31)-(h/2), w, h);  //rect going left
         }
         //  waveform
         var waveform = fft.waveform();
@@ -192,7 +192,7 @@ function draw() {
         }
         endShape();
         // laputa crop
-        //background(laputaCrop); 
+        background(laputaCrop); 
     }
     // when song has ended, playing=false
     if (curSong) {curSong.onended(fPlay); }
