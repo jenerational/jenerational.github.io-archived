@@ -7,7 +7,7 @@ var ampSense = 2;
 var level;          //  amplitude val
 //function modes
 var audMode = 1;    // mic, chosen song/drag n drop
-var visMode = 1; 
+var visMode = 2; 
 //visMode 0 values
 var threshold = 0.1, cutoff = 0, decayRate = 0.95; 
 var fruit = [];
@@ -23,8 +23,8 @@ var circNum = 0;
 var switchInterval = 2000; // for circle timing change if no amp (2 sec)
 var timeOfLastSwitch = 0;
 //vis Mode 2 values               
-var ampLevs = new Array(55);
-var spacing = 10; 
+var ampLevs = new Array(60);
+var spacing = 12; 
 //audMode 1 values
 var micOn = false; 
 //audMode 2 values
@@ -43,6 +43,8 @@ function preload() {
     laputa = loadSound('assets/Laputa.m4a');
     // image preload
     frootImg = loadImage('assets/frootImg.png');
+    laputaImg = loadImage('assets/laputa.jpg');
+    laputaCrop = loadImage('assets/laputa.png');
 }
 
 function setup() {
@@ -70,14 +72,14 @@ function draw() {
     //  AUD MODE IF STATEMENTS
     level = amplitude.getLevel();
     var spectrum = fft.analyze();
+    pd.update(fft);
     //  VIS MODE DRAW
     background(0); 
     if (visMode == 0) { 
         //  FROOT
         image(frootImg, (width/2-frootImg.width/2), (height/2-frootImg.height/2)); 
         //  threshold fruit loops
-        pd.update(fft); 
-        if (pd.isDetected || level >.5) {
+        if (pd.isDetected || level >.45) {
             randx = random(40, windowWidth-40);
             randy = random(40, windowHeight-40);
             var randCol = random(fCol);
@@ -113,7 +115,8 @@ function draw() {
             circs[i].display();
         }
         console.log("lvl: "+level);
-        if (level > .3 || (curSong==getup && level > .18)) {                   //  if "v loud", recolor circles 
+        //if (level > .3 || (curSong==getup && level > .22)) {                   //  if "v loud", recolor circles 
+        if (pd.isDetected || level >.3 || (curSong==getup && level > .22)) { 
             for (var i=0; i<circNum; i++) {
                 circs[i].reCirc();
             }
@@ -149,46 +152,47 @@ function draw() {
         fill(200,0,0); 
         text(nf(hr, 2, 0) + ' : ' + nf(mint, 2, 0) + " : " + nf(sec, 2, 0), width*.5, height*.6); 
         // alarm spectrum
-        for (var i = 0; i< spectrum.length; i+=10) {
+        /*for (var i = 0; i< spectrum.length; i+=10) {
             var x = map(i, 0, spectrum.length, windowWidth*.276, windowWidth*.722);
             var h = -height + map(spectrum[i], 0, 255, height*.98, height*.9);
             //dgrey grass
-            /*stroke(1);
+            stroke(1);
             stroke(220,0,0);
             fill(255,0,0);
             rect(x, windowHeight*.67, (windowWidth*.40 / spectrum.length) * 10, h+windowHeight*.01);
-        */}
-
-       
-         
-        
+        }    */
     } else if (visMode == 2) { 
         // LAPUTA
+        // bg image
+        background(laputaImg); 
         //  amp wave
-        var w = width/(ampLevs.length * spacing);
+        var w = width*1.5/(ampLevs.length * spacing);
         ampLevs.push(level);
         ampLevs.splice(0, 1);
         //  display ampLevs
+        stroke(73,195,244);
+        fill(214,245,247); 
+        strokeWeight(1); 
         for (var i = 0; i < 60; i++) {
-            var x = map(i, ampLevs.length, 0, (width/2+20), width);
-            var h = map(ampLevs[i], 0, 0.6, 1, height/2);
-            stroke(189, 141, 224);
-            fill(230); 
-            rect(x, (height/5*2)-(h/2), w, h);
-            rect(width - x, (height/5*2)-(h/2), w, h);
+            var x = map(i, ampLevs.length, 0, (width*.6), width);
+            var h = map(ampLevs[i], 0, 0.6, 0, height/2);
+            rect(x+width*.03, (height*.35)-(h/2), w, h);  // rect going right
+            rect(width*1.03 - x, (height*.35)-(h/2), w, h);  //rect going left
         }
         //  waveform
         var waveform = fft.waveform();
         noFill();
         beginShape();
-        stroke(255); 
+        stroke(214,245,247); 
         strokeWeight(2);
         for (var i = 0; i< waveform.length; i+=10){
             var x = map(i, 0, waveform.length, 0, width);
-            var y = map(waveform[i]/8, -1, 1, height/3*2, height);
+            var y = map(waveform[i]/8, -1, 1, height/2, height);
             vertex(x, y);
         }
         endShape();
+        // laputa crop
+        //background(laputaCrop); 
     }
     // when song has ended, playing=false
     if (curSong) {curSong.onended(fPlay); }
