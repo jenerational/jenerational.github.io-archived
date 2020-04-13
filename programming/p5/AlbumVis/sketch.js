@@ -1,13 +1,13 @@
 //  BEFORE COMMIT: instr = true, audMode = 1, visMode = 0
 var cnv; 
-var INSTR = false;   // shows instructions
+var INSTR = true;   // shows instructions
 //sensitivities
 var ampSense = 2;  
 //general mode values 
 var level;          //  amplitude val
 //function modes
 var audMode = 1;    // mic, chosen song/drag n drop
-var visMode = 2; 
+var visMode = 0; 
 //visMode 0 values
 var threshold = 0.1, cutoff = 0, decayRate = 0.95; 
 var fruit = [];
