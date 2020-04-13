@@ -174,10 +174,10 @@ function draw() {
         fill(214,245,247); 
         strokeWeight(1); 
         for (var i = 0; i < 60; i++) {
-            var x = map(i, ampLevs.length, 0, (width*.62), width);
+            var x = map(i, ampLevs.length, 0, (width*.60), width*1.05);
             var h = map(ampLevs[i], 0, 0.6, 0, height/2);
-            rect(x+width*.03, (height*.31)-(h/2), w, h);  // rect going right
-            rect(width*1.03 - x, (height*.31)-(h/2), w, h);  //rect going left
+            rect(x+width*.02, (height*.31)-(h/2), w, h);  // rect going right
+            rect(width*1.02 - x, (height*.31)-(h/2), w, h);  //rect going left
         }
         //  waveform
         var waveform = fft.waveform();
@@ -194,6 +194,8 @@ function draw() {
         // laputa crop
         background(laputaCrop); 
     }
+
+
     // when song has ended, playing=false
     if (curSong) {curSong.onended(fPlay); }
     // instructions
